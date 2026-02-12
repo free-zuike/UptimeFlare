@@ -68,7 +68,7 @@ const workerConfig: WorkerConfig = {
       name: 'email',
       method: 'HEAD',
       target: 'https://email.zuike.qzz.io/',
-      statusPageLink: 'https://email.zuike.qzz.ioo/',
+      statusPageLink: 'https://email.zuike.qzz.io/',
       hideLatencyChart: false,
       expectedCodes: [200],
       timeout: 10000,
