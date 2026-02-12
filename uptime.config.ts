@@ -62,6 +62,66 @@ const workerConfig: WorkerConfig = {
       hideLatencyChart: false,
       expectedCodes: [200],
       timeout: 10000,
+    },
+    {
+      id: 'email_cf',
+      name: 'email',
+      method: 'HEAD',
+      target: 'https://email.zuike.qzz.io/',
+      statusPageLink: 'https://email.zuike.qzz.ioo/',
+      hideLatencyChart: false,
+      expectedCodes: [200],
+      timeout: 10000,
+    },
+    {
+      id: 'subscrition_cf',
+      name: '订阅管理系统',
+      method: 'HEAD',
+      target: 'https://subscription.freezuike.dpdns.org/',
+      statusPageLink: 'https://subscription.freezuike.dpdns.org/',
+      hideLatencyChart: false,
+      expectedCodes: [200],
+      timeout: 10000,
+    },
+    {
+      id: 'subscrition_cf',
+      name: '文字转图片',
+      method: 'HEAD',
+      target: 'https://text2img.zuike.qzz.io/',
+      statusPageLink: 'https://text2img.zuike.qzz.io/',
+      hideLatencyChart: false,
+      expectedCodes: [200],
+      timeout: 10000,
+    },
+    {
+      id: 'moepush_cf',
+      name: '推送服务',
+      method: 'HEAD',
+      target: 'https://moepush.zuike.qzz.io/',
+      statusPageLink: 'https://moepush.zuike.qzz.io/',
+      hideLatencyChart: false,
+      expectedCodes: [200],
+      timeout: 10000,
+    },
+    {
+      id: 'movecar_cf',
+      name: '挪车',
+      method: 'HEAD',
+      target: 'https://movecar.zuike.qzz.io/',
+      statusPageLink: 'https://movecar.zuike.qzz.io/',
+      hideLatencyChart: false,
+      expectedCodes: [200],
+      timeout: 10000,
+    },
+    {
+      id: 'blog_admin_vercel',
+      name: 'blog后台系统',
+      method: 'HEAD',
+      target: 'https://blog-admin.zuike.qzz.io/',
+      statusPageLink: 'https://blog-admin.zuike.qzz.io/',
+      hideLatencyChart: false,
+      expectedCodes: [200],
+      timeout: 10000,
     }
   ],
   notification: {
@@ -117,8 +177,7 @@ const workerConfig: WorkerConfig = {
       // 如果需要发送 HTML 邮件，请保留以下代码；如果只需简单文本通知，可以注释掉以下代码以避免重复通知。
       
       // 调用 Resend API 发送邮件通知 (高级 HTML 格式)
-      // 务必在 Cloudflare Worker 的设置 -> 变量中配置: RESEND_API_KEY
-      /* 
+      // 务必在 Cloudflare Worker 的设置 -> 变量中配置: RESEND_API_KEY 
       if (env.RESEND_API_KEY) {
         try {
           const statusText = isUp ? '恢复正常 (UP)' : '服务中断 (DOWN)';
@@ -143,8 +202,8 @@ const workerConfig: WorkerConfig = {
           `;
 
           const resendPayload = {
-            from: "系统状态更新 <uptimeflare@update.2x.nz>",
-            to: ["acofork@foxmail.com"],
+            from: "系统状态更新 <admin@email.zuike.qzz.io>",
+            to: ["freezuike@qq.com"],
             subject: subject,
             html: htmlContent,
           };
@@ -165,7 +224,6 @@ const workerConfig: WorkerConfig = {
           console.error(`Error calling Resend API: ${e}`);
         }
       }
-      */
       
       // 这不会遵循宽限期设置，并且在状态变化时立即调用
       // 如果您想实现宽限期，需要手动处理
